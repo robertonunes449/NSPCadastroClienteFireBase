@@ -1,0 +1,11 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+mat-toolbar {    
+    position: fixed;
+    bottom: 0;
+    justify-content: flex-end;
+    font-size: 0.8rem; 
+    height: 5%; 
+}  

@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "CadastroClienteFirebase",
+      "public": "dist/CadastroClienteFirebase",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

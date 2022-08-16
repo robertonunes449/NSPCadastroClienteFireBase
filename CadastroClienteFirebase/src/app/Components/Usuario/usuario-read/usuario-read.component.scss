@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  mat-toolbar {
+    position: 0 fixed;
+  }
+  
+  .search {
+    width: 60%;
+    margin-left: 20%;
+    font-size: 30px;
+  }

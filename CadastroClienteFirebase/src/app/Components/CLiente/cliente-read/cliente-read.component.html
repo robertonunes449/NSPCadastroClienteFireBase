@@ -1,0 +1,36 @@
+
+<div class="content">
+    <mat-card class="mat-elevation-z8">
+      <mat-card-title class="mat-elevation-z8 title" fxLayoutAlign="center center">
+        <h1>Colaboradores Cadastrados</h1>
+      </mat-card-title>
+  
+      <mat-card-content>
+        <br>
+        <button mat-flat-button color="warn" routerLink="">
+          Voltar
+          <i class="material-icons">reply</i>           
+      </button> 
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card  >
+        
+      <mat-card-content>       
+          <mat-list cols="6" class="mat-elevation-z8 content">
+            <br><br><br>
+              <mat-list-item *ngFor="let c of dataSource" fxLayoutAlign="center center" >
+                <button class="button mat-elevation-z8" mat-raised-button routerLink="{{ c.id }}/cliente"  >
+                  <mat-icon >person</mat-icon>  
+                             
+                    <span>
+                      {{  c.nome }}
+                    </span>                 
+                </button>
+              </mat-list-item>
+              <br><br><br>
+          </mat-list>
+      </mat-card-content>
+    </mat-card> 
+  </div>
+  

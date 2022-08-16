@@ -1,0 +1,85 @@
+
+<mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="space-around center">
+       <h1>Excluir Colaborador</h1> 
+    </mat-card-title>
+    <br><br>
+    <mat-card-content fxLayoutAlign="space-around center">
+        <form  fxLayout="column" fxLayoutAlign="start stretch">
+            <div fxFlex="100"  fxLayout="column" fxLayoutAlign="space-between  begin">
+              <mat-form-field class="form">
+                <input matInput disabled [(ngModel)]="colaboradores.nome" type="text" name="nome" placeholder="Nome">
+              </mat-form-field>
+              <mat-form-field class="form">
+                <input matInput disabled [(ngModel)]="colaboradores.email" type="email" name="email" placeholder="Email">
+              </mat-form-field>
+            <div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-between  begin">
+                <mat-form-field fxFlex="45">
+                  <input matInput disabled [(ngModel)]="colaboradores.funcao" type="text" name="funcao" placeholder="Função">
+                </mat-form-field>
+                <mat-form-field fxFlex="25">
+                  <input matInput disabled [(ngModel)]="colaboradores.nascimento" type="date" name="nascimento" placeholder="Data de Nascimeto">
+                </mat-form-field>
+            </div>
+               
+            </div>
+            <div fxFlex="100" fxLayoutAlign="begin">
+                <h4>Endereço:</h4>
+            </div>          
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between begin" fxLayoutGap="20px">
+              <mat-form-field fxFlex="50" >  
+                <input matInput disabled [(ngModel)]="colaboradores.logradouro" type="text" name="logradour" placeholder="Endereço">
+              </mat-form-field> 
+              <mat-form-field fxFlex="20">
+                <input matInput disabled [(ngModel)]="colaboradores.numero" type="text" name="numero" placeholder="Número">
+              </mat-form-field>
+              <mat-form-field fxFlex="30">
+                <input matInput disabled [(ngModel)]="colaboradores.complemento" type="text" name="complemento" placeholder="Complemento">
+              </mat-form-field>            
+            </div>
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between begin" fxLayoutGap="20px">
+                <mat-form-field fxFlex="30" >  
+                  <input matInput disabled [(ngModel)]="colaboradores.cep" type="text" name="cep" placeholder="CEP" mask="00000-000">
+                </mat-form-field> 
+                <mat-form-field fxFlex="30">
+                  <input matInput disabled [(ngModel)]="colaboradores.bairro" type="text" name="bairro" placeholder="Bairro">
+                </mat-form-field>
+                <mat-form-field fxFlex="30">
+                  <input matInput disabled [(ngModel)]="colaboradores.cidade" type="text" name="cidade" placeholder="Cidade">
+                </mat-form-field>
+                <mat-form-field fxFlex="10">
+                  <input matInput disabled [(ngModel)]="colaboradores.uf" type="text" name="uf" placeholder="UF">
+                  </mat-form-field>            
+              </div>
+    
+            <div fxFlex="100" fxLayoutAlign="begin">
+              <h4>Telefone: </h4>
+            </div> 
+    
+            <div fxFlex="100"  fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <mat-form-field fxFlex="30">  
+                <input matInput disabled [(ngModel)]="colaboradores.telefone" type="text" name="telefone" placeholder="Telefone" mask="(00) 0000-0000" >
+              </mat-form-field>
+            </div>     
+    
+            <div fxFlex="100" fxLayoutAlign="begin">
+                <h4>Celular: </h4>
+              </div> 
+      
+              <div fxFlex="100"  fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="20px">
+                <mat-form-field fxFlex="30">  
+                  <input matInput disabled [(ngModel)]="colaboradores.celular" type="text" name="celular" placeholder="Celular" mask="(00) 00000-0000">
+                </mat-form-field>
+              </div>     
+    
+           
+              <div mat-dialog-action [align]="'end'" fxLayoutGap="10px">
+                <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+                <button mat-raised-button color="primary" (click)="delete()"> Excluir </button>
+              </div>
+            
+        </form>
+    </mat-card-content>
+  </mat-card>
+  
+  

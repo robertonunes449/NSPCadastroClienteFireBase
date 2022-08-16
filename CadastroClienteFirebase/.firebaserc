@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nspcadastrocliente": {
+      "hosting": {
+        "CadastroClienteFirebase": [
+          "nspcadastrocliente"
+        ]
+      }
+    }
+  }
+}

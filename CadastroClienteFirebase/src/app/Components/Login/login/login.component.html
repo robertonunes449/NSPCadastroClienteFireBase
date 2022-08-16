@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-title fxLayout="row" fxLayoutAlign="space-around center">Login</mat-card-title>
+    <br><br>
+    <mat-card-content fxLayoutAlign="space-around center">
+        <form fxLayout="column" fxLayoutAlign="start stretch">
+        <div fxFlex="100"  fxLayout="column" fxLayoutAlign="space-between  begin">
+            <mat-form-field >
+            <input matInput placeholder="Entre com seu Email" [ngModel]="email" required>
+             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+              
+            <mat-form-field >
+            <input matInput placeholder="Entre com sua Senha" [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              </mat-form-field>
+        </div>
+
+        <div [align]="'end'" fxLayoutGap="10px">
+            <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+            <button mat-raised-button color="primary" (click)="create()"> Entrar </button>
+          </div>
+        </form>    
+        </mat-card-content>
+    </mat-card>
