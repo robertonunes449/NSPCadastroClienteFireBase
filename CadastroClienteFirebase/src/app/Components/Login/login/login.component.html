@@ -1,27 +1,40 @@
-<mat-card>
-    <mat-card-title fxLayout="row" fxLayoutAlign="space-around center">Login</mat-card-title>
-    <br><br>
-    <mat-card-content fxLayoutAlign="space-around center">
-        <form fxLayout="column" fxLayoutAlign="start stretch">
-        <div fxFlex="100"  fxLayout="column" fxLayoutAlign="space-between  begin">
-            <mat-form-field >
-            <input matInput placeholder="Entre com seu Email" [ngModel]="email" required>
-             <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
+<div style="background-color: #ade0d7;">
+  <br><br><br><br><br><br>
+  
+  <div fxLayout="column" >
+    <div fxLayoutAlign="center" fxLayout="row">
+      <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
 
-              
-            <mat-form-field >
-            <input matInput placeholder="Entre com sua Senha" [type]="hide ? 'password' : 'text'">
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
+        <mat-card class="login-card mat-elevation-z8" >
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-content fxLayout="column" *ngIf="!loading">
+              <mat-form-field >
+                <input matInput formControlName="email" type="email"
+                    placeholder="Email" autocomplete="email" readonly="false">
               </mat-form-field>
-        </div>
+              <mat-form-field>
+                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"  
+                  placeholder="Password" autocomplete="password">
+                  <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </a>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions >
+              <div fxLayout="row" fxLayoutAlign="space-between center">
+                <button mat-raised-button color="accent" (click)="loginGoogle()"  type="button" [disabled]="loading" >Google Login</button>
+                <button mat-raised-button color="black" routerLink="/esqueci-senha"  type="button" [disabled]="loading" >Esqueci a Senha</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid || loading">Entrar</button>
+                <!--button mat-button color="accent" routerLink="/auth/forgot"><mat-icon>lock_open</mat-icon><u> ESQUECI A SENHA</u></button-->
+              </div>
+            </mat-card-actions>
 
-        <div [align]="'end'" fxLayoutGap="10px">
-            <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
-            <button mat-raised-button color="primary" (click)="create()"> Entrar </button>
-          </div>
-        </form>    
-        </mat-card-content>
-    </mat-card>
+          <mat-progress-bar *ngIf="loading" mode="indeterminate" ></mat-progress-bar>
+
+        </mat-card>
+      </form>
+
+    </div>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br>
+</div>

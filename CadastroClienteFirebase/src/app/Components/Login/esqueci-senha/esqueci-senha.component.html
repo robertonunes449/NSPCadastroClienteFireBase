@@ -1,0 +1,48 @@
+<div style="background-color: #ade0d7;">
+    <br><br><br><br><br><br>
+    
+    <div fxLayout="column" >
+      <div fxLayoutAlign="center" fxLayout="row">
+        <form  [formGroup]="forgotForm" (ngSubmit)="retrievePassword()" >
+  
+          <mat-card class="login-card mat-elevation-z8">
+              <mat-card-title >Esqueci a Senha</mat-card-title>
+              <br><br>
+              <mat-card-content fxLayout="column">
+                <mat-form-field >
+                  <input matInput formControlName="email" type="email"
+                      placeholder="Email" autocomplete="email" readonly="false">
+                </mat-form-field>
+
+                <div *ngIf="firebaseErrorMessage != ''" class="error-style">
+                  <span>{{ firebaseErrorMessage }}</span>
+                </div>
+      
+              </mat-card-content>
+              <mat-card-actions >
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <button mat-raised-button color="primary" type="submit" [disabled]="!forgotForm.valid" [disabled]="mailSent">Resetar minha senha</button>
+                  <!--button mat-button color="accent" routerLink="/auth/forgot"><mat-icon>lock_open</mat-icon><u> ESQUECI A SENHA</u></button-->
+                </div>
+                <div *ngIf="mailSent">
+                  <p>Um Email foi enviado!</p>
+                  <button mat-raised-button color="primary" routerLink="/">
+                      <mat-icon>home</mat-icon>
+                      <span>Retornar para Home</span>
+                  </button>
+                </div>
+      
+              </mat-card-actions>
+  
+              <div class="progressIndicator" [style.display]="loading ? 'inline' : 'none' " [align]="'center'">
+                <mat-progress-bar class=" example-margin" color="primary" mode="indeterminate"></mat-progress-bar>
+            </div>
+            
+  
+          </mat-card>
+        </form>
+  
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+  </div>

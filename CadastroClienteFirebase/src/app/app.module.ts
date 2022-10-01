@@ -35,6 +35,16 @@ import localept from '@angular/common/locales/pt';
 import localeES from '@angular/common/locales/es';
 import localeDE from '@angular/common/locales/de';
 import localeFR from '@angular/common/locales/fr';
+import { EsqueciSenhaComponent } from './components/login/esqueci-senha/esqueci-senha.component';
+import { ConfirmarEmailComponent } from './components/login/confirmar-email/confirmar-email.component';
+import { ServicoReadComponent } from './components/servicos/servico-read/servico-read.component';
+import { ServicoCreateComponent } from './components/servicos/servico-create/servico-create.component';
+import { ServicoUpdateComponent } from './components/servicos/servico-update/servico-update.component';
+import { ServicoDeleteComponent } from './components/servicos/servico-delete/servico-delete.component';
+import { ProdutoDeleteComponent } from './components/produtos/produto-delete/produto-delete.component';
+import { ProdutoCreateComponent } from './components/produtos/produto-create/produto-create.component';
+import { ProdutoUpdateComponent } from './components/produtos/produto-update/produto-update.component';
+import { ProdutoReadComponent } from './components/produtos/produto-read/produto-read.component';
 registerLocaleData(localept);
 registerLocaleData(localeES);
 registerLocaleData(localeDE);
@@ -61,7 +71,18 @@ registerLocaleData(localeFR);
     UsuarioUpdateComponent,
     UsuarioDeleteComponent,
     LoginComponent,
-    ClienteCreateAllComponent
+    ClienteCreateAllComponent,
+    EsqueciSenhaComponent,
+    ConfirmarEmailComponent,
+    ServicoReadComponent,
+    ServicoCreateComponent,
+    ServicoUpdateComponent,
+    ServicoDeleteComponent,
+    ProdutoDeleteComponent,
+    ProdutoCreateComponent,
+    ProdutoUpdateComponent,
+    ProdutoReadComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -75,7 +96,8 @@ registerLocaleData(localeFR);
     AngularFireAuthModule,
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt-br' }
+    { provide: LOCALE_ID, useValue: 'pt-br' },
+    
   ],
   bootstrap: [AppComponent]
 })

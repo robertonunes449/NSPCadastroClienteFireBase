@@ -1,0 +1,44 @@
+<div style="background-color: #ade0d7;">
+    <br><br><br><br><br>
+    
+    <div  fxLayout="row" fxLayoutAlign="space-around center" >
+      
+      <div align="center" fxLayout="row" fxLayoutAlign="center center"  class="register-form">
+      <mat-card class="mat-elevation-z8" flex="80">
+        <mat-card-title fxLayout="row" fxLayoutAlign="space-around center">
+          <h1>Criar Serviço</h1> 
+        </mat-card-title>
+          <br><br>
+        <mat-card-content fxLayoutAlign="space-around center">
+            <form role="form" fxLayout="column" fxLayoutAlign="start stretch">
+                <div  fxLayout="column" fxLayoutAlign="space-between  begin">
+                  <mat-form-field class="form">
+                    <input matInput [(ngModel)]="servicos.nome" type="text" name="nome" placeholder="Nome">
+                  </mat-form-field>
+                  <mat-form-field class="form">
+                    <input matInput [(ngModel)]="servicos.tipo" type="text" name="tipo" placeholder="Tipo">
+                  </mat-form-field>
+                <div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-between  begin">
+                  <mat-form-field fxFlex="50" >
+                     <input matInput [(ngModel)]="servicos.preco" type="text" name="preco" placeholder="Preço"
+                     [hiddenInput]="true" mask="separator.2" thousandSeparator="." prefix="R$">
+                  </mat-form-field>                
+                </div>
+                  <mat-form-field class="form">
+                    <textarea matInput placeholder="Descrição" [(ngModel)]="servicos.descricao"
+                    name="descricao"></textarea>
+                  </mat-form-field>
+                </div>
+             
+                  <div class="btn" [align]="'end'" fxLayoutGap="10px">
+                    <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancelar</button>
+                    <button mat-raised-button color="primary" type="submit" (click)="create()"> Criar </button>
+                  </div>
+                
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    </div>
+    <br><br><br>
+    </div>

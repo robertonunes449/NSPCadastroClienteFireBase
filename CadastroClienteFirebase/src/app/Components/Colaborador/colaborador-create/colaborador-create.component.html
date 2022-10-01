@@ -1,11 +1,16 @@
-<div >
-  <mat-card>
+<div style="background-color: #ade0d7;">
+<br><br><br><br><br>
+
+<div  fxLayout="row" fxLayoutAlign="space-around center" >
+  
+  <div align="center" fxLayout="row" fxLayoutAlign="center center"  class="register-form">
+  <mat-card class="mat-elevation-z8" flex="80">
     <mat-card-title fxLayout="row" fxLayoutAlign="space-around center">
       <h1>Criar novo Colaborador</h1> 
     </mat-card-title>
       <br><br>
     <mat-card-content fxLayoutAlign="space-around center">
-        <form  fxLayout="column" fxLayoutAlign="start stretch">
+        <form role="form" fxLayout="column" fxLayoutAlign="start stretch">
             <div fxFlex="100"  fxLayout="column" fxLayoutAlign="space-between  begin">
               <mat-form-field class="form">
                 <input matInput [(ngModel)]="colaboradores.nome" type="text" name="nome" placeholder="Nome">
@@ -81,4 +86,7 @@
         </form>
     </mat-card-content>
   </mat-card>
+</div>
+</div>
+<br><br><br>
 </div>

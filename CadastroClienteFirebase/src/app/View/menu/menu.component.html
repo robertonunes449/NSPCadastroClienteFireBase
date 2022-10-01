@@ -15,26 +15,26 @@
             </mat-grid-tile>
             <mat-grid-tile>
                 <button mat-raised-button routerLink="/clientes">
-                    <mat-icon>person</mat-icon><br><br>
+                    <mat-icon>groups</mat-icon><br><br>
                     <label>Clientes</label>
                 </button>
             </mat-grid-tile>
             <mat-grid-tile>
-                <button mat-raised-button routerLink="">
+                <button mat-raised-button routerLink="/usuarios">
+                    <mat-icon>person</mat-icon><br><br>
+                    <label>Usuarios</label>
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-raised-button routerLink="/produtos">
+                    <mat-icon>storefront</mat-icon><br><br>
+                    <label>Produtos</label>
+                </button>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <button mat-raised-button routerLink="/servicos">
                     <mat-icon>store</mat-icon><br><br>
-                    <label>Produtos e Serviços</label>
-                </button>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <button mat-raised-button>
-                    <mat-icon>person</mat-icon><br>
-                    <label>Funcionários</label>
-                </button>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <button mat-raised-button>
-                    <mat-icon>person</mat-icon><br>
-                    <label>Funcionários</label>
+                    <label>Serviços</label>
                 </button>
             </mat-grid-tile>
             <mat-grid-tile >
@@ -57,10 +57,11 @@
                     <mat-icon>person</mat-icon><br>
                     <label>Funcionários</label>
                 </button>
-            </mat-grid-tile><mat-grid-tile >
-                <button  mat-raised-button routerLink="/funcs">
-                    <mat-icon>person</mat-icon><br>
-                    <label>Funcionários</label>
+            </mat-grid-tile>
+            <mat-grid-tile >
+                <button mat-raised-button (click)="logout()">
+                    <mat-icon>logout</mat-icon><br><br>
+                    <label>Sair</label>
                 </button>
             </mat-grid-tile>
         </mat-grid-list>

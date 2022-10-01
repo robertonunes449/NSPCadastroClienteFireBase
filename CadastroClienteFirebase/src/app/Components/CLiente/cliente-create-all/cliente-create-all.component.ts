@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/Models/Cliente/Cliente';
+import { Colaborador } from 'src/app/Models/Colaborador/Colaborador';
 import { CliServiceService } from 'src/app/Services/Cliente/cli-service.service';
 
 @Component({
@@ -21,7 +23,7 @@ export class ClienteCreateAllComponent implements OnInit {
 
   clientes: Cliente[] = [];
   
-
+  col$: Observable<Colaborador>;
 
   constructor(
     private router: Router,

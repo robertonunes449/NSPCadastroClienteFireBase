@@ -1,10 +1,44 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="mat-elevation-z8">
     <mat-toolbar-row>
-        <span>Sistema de Cadastro de Clientes</span>
+        <ng-container *ngIf="(authenticated$ | async) && (user$ | async)">
+          <button class="margem" mat-raised-button routerLink="/menu" >
+            <mat-icon>home</mat-icon>
+            Home
+          </button> 
+        </ng-container> 
+          <span>Sistema de Cadastro de Clientes</span> 
+        
         <span class="spacer"></span>
-        <button mat-icon-button class="example-icon">
-            <mat-icon  aria-hidden="false" aria-label="Example user verified icon" routerLink="/login">login</mat-icon>
-        </button>
+        <ng-container *ngIf="!(authenticated$ | async)">
+            <button mat-raised-button color="accent" routerLink="/login"><mat-icon>login</mat-icon>&nbsp;Entrar</button>            
+        </ng-container>  
+
+        <ng-container *ngIf="(authenticated$ | async) && (user$ | async)">         
+        
+        
+          <button mat-raised-button  [matMenuTriggerFor]="profileMenu">
+            <mat-icon>account_circle</mat-icon>
+              {{(user$|async)?.nome}}
+          </button>
+            
+        
+          <mat-menu xPosition="before" [overlapTrigger]="false" 
+                      #profileMenu="matMenu" class="before" >
+            <p class="username" [align]="'center'">{{(user$|async)?.nome}}</p>
+            <mat-divider></mat-divider>
+        
+            <button mat-menu-item routerLink="usuarios/update/{{(user$|async)?.id}}" >
+              <mat-icon>password</mat-icon>
+                Redefinir Senha
+            </button>
+
+            <button mat-menu-item (click)="logout()" >
+                <mat-icon>logout</mat-icon>
+                Sair
+            </button>
+          </mat-menu>        
+        
+        </ng-container>  
     
     </mat-toolbar-row>
 </mat-toolbar>

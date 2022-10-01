@@ -2,12 +2,19 @@
     flex: 1 1 auto;
   
   }
+
+  .margem {
+    margin-right: 4rem;
+    background-color: #6ebc09;
+    color: white;
+  }
   
   mat-toolbar {
     position: relative;
     top: 0;
     display: flex;
     justify-content: flex-start;
+    
   }
   
   

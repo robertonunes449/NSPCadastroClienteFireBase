@@ -1,0 +1,95 @@
+<div>
+    <ng-container >
+        <mat-card class="bg">
+      
+            <mat-card-header  fxLayout="row" fxLayoutAlign="center center" >
+                <mat-card-title > 
+                    <h1>Lista de Serviços</h1> 
+                </mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>  
+      
+            <mat-card-content fxLayoutGap="20px">
+                <button mat-flat-button color="warn" routerLink="/menu">
+                        Voltar
+                    <mat-icon>reply</mat-icon>           
+                </button>
+                <button mat-flat-button color="primary" (click)="CriarServico()">
+                        Adicionar Novo Serviço
+                    <mat-icon>add_business</mat-icon>           
+                </button> 
+            </mat-card-content>
+        </mat-card>
+        <br><br>
+        <div class="container" style="background-color: #6ebc09" >
+            <mat-card >
+                <mat-form-field class="search">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Pesquisar Serviço">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                  
+                  <div class="mat-elevation-z8" [align]="'center'" fxLayoutGap="10">
+                    <table mat-table [dataSource]="dataSource" matSort>
+    
+                      <!--Icon-->
+                      <ng-container matColumnDef="icon" >
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>  </th>
+                        <td mat-cell *matCellDef="let row"> 
+                        <mat-icon class="icon" >content_paste</mat-icon>  
+                        </td>
+                      </ng-container>
+    
+                      <!--ID number-->
+                      <ng-container matColumnDef="ID" >
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                      </ng-container>
+                  
+                      <!-- Progress Nome -->
+                      <ng-container matColumnDef="nome">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+                        <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+                      </ng-container>
+                  
+                      <!-- Funcão Column -->
+                      <ng-container matColumnDef="tipo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+                        <td mat-cell *matCellDef="let row"> {{row.tipo}} </td>
+                      </ng-container>
+          
+                      
+          
+                      <!-- Celular Column -->
+                      <ng-container matColumnDef="preco">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Preço </th>
+                        <td mat-cell *matCellDef="let row" > {{row.preco | currency:'BRL':true:'1.2-2'}} </td>
+                      </ng-container>
+                  
+                      <!-- Celular Column -->
+                      <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef > {{row}} </th>
+                          <td mat-cell *matCellDef="let row"  fxLayoutGap="20px">
+                              <button mat-raised-button color="primary" routerLink="update/{{row.id}}">
+                                  Editar
+                                  <mat-icon>edit</mat-icon>
+                              </button>
+                              <button mat-raised-button color="warn" routerLink="delete/{{row.id}}">
+                                Excluir
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                          </td>
+                      </ng-container>
+                  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                      </tr>
+                    </table>            
+                    <mat-paginator class="th" [pageSizeOptions]="[10, 50, 100]"></mat-paginator>
+                  </div>      
+            </mat-card>
+        </div>  
+      </ng-container>
+      <br><br><br>
+    </div> 
+      
+    

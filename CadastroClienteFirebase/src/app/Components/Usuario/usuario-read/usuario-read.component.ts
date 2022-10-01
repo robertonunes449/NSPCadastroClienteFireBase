@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserServiceService } from 'src/app/Services/Usuario/user-service.service';
 
 @Component({
   selector: 'app-usuario-read',
@@ -9,21 +10,38 @@ import { Router } from '@angular/router';
 })
 export class UsuarioReadComponent implements OnInit {
 
-  displayedColumns: string[] = ['ID', 'nome', 'funcao', 'nascimento', 'celular', 'action'];
+  displayedColumns: string[] = ['ID', 'nome', 'email', 'action'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
+    private userService: UserServiceService,
+    private route: ActivatedRoute,
     private router: Router,
   ) { }
 
   ngOnInit() {
+    this.getAllUSer();
   }
 
-  addColaborador(){
-    this.router.navigate(["colaboradores/add"]);
+  getAllUSer() {
+    this.userService.findAll()
+    .subscribe({
+      next: (res)=>{
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      error:(err)=>{
+        alert("Error while Fetching the Records!")
+      }
+    })
+  }
+
+  createUser(){
+    this.router.navigate(["usuarios/add"]);
   }
 
   applyFilter(filterValue: string) {
